@@ -12,7 +12,7 @@ import path from "path";
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 // Provide a sensible default for CI when BASE_URL isn't set via env/.env
-const LOCAL_BASE_URL = process.env.BASE_URL || "http://127.0.0.1:5500";
+const LOCAL_BASE_URL = process.env.BASE_URL || "http://localhost:5500";
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -79,7 +79,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: "npm run start",
-    url: LOCAL_BASE_URL,
+    port: 5500,
     reuseExistingServer: !process.env.CI,
   },
 });
