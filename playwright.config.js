@@ -12,7 +12,7 @@ import path from "path";
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 // Provide a sensible default for CI when BASE_URL isn't set via env/.env
-const BASE_URL = process.env.BASE_URL || "http://127.0.0.1:5500";
+const LOCAL_BASE_URL = process.env.BASE_URL || "http://127.0.0.1:5500";
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -32,7 +32,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: BASE_URL,
+    baseURL: LOCAL_BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -79,7 +79,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: "npm run start",
-    url: BASE_URL,
+    url: LOCAL_BASE_URL,
     reuseExistingServer: !process.env.CI,
   },
 });
