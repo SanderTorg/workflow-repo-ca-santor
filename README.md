@@ -2,9 +2,15 @@
 
 This is a CA project, made by Sander D. Torgersen with the purpose of configuring the project with common dependencies and testing the project.
 
-## Report
+## Report and links
 
 [Google docs report](https://docs.google.com/document/d/1MeSENBUVvHJSSdv6_W75rMBZWqszv8PrtHY2HrhX3qs/edit?usp=sharing)
+
+[GitHub Pull Request](https://github.com/SanderTorg/workflow-repo-ca-santor/pull/1)
+
+[GitHub repository for my forked repo](https://github.com/SanderTorg/workflow-repo-ca-santor)
+
+[GitHub repository for the original Noroff repo](https://github.com/NoroffFEU/workflow-repo-ca)
 
 ## How to start
 
