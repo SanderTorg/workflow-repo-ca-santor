@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
-const validEmail = process.env.USER_EMAIL;
-const validPassword = process.env.USER_PASSWORD;
-
 test.describe("Login testing with a valid user and not a valid user", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/login/");
   });
   test("User can log in successfully", async ({ page }) => {
     await expect(page).toHaveURL("/login/");
+
+    const validEmail = process.env.USER_EMAIL;
+    const validPassword = process.env.USER_PASSWORD;
     expect(validEmail).toBeTruthy();
     expect(validPassword).toBeTruthy();
 
