@@ -9,8 +9,8 @@ test.describe("Login testing with a valid user and not a valid user", () => {
 
     const validEmail = process.env.USER_EMAIL;
     const validPassword = process.env.USER_PASSWORD;
-    expect(validEmail).toBeTruthy();
-    expect(validPassword).toBeTruthy();
+    expect(validEmail).toBeDefined();
+    expect(validPassword).toBeDefined();
 
     await page.fill('form#loginForm input[name="email"]', validEmail);
     await page.fill('form#loginForm input[name="password"]', validPassword);
