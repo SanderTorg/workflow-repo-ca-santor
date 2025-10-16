@@ -17,14 +17,17 @@ test.describe("Login testing with a valid user and not a valid user", () => {
 
     await Promise.all([
       page.waitForResponse(
-        (resp) => resp.url().includes("/login/") && resp.status() === 200
+        (resp) =>
+          resp.url().includes("/auth/login") &&
+          resp.request().method() === "POST" &&
+          resp.status() === 200
       ),
       page.click('button[type="submit"]'),
     ]);
-    const homePageHeader = page.locator('h1:has-text("Welcome to this site"),');
+    const homePageHeader = page.locator('h1:has-text("Welcome to this site")');
     await expect(homePageHeader).toBeVisible({ timeout: 10000 });
 
-    await expect(page).not.toContain("/login/");
+    await expect(page).not.toHaveURL("/login/");
   });
 
   test("user cannot log in with invalid credentials", async ({ page }) => {
